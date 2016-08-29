@@ -7,16 +7,15 @@
 - Run `npm install` to install the required modules
 - Run `bower install` to install the required modules
 
+## Run the App
+
 After installed all the required dependencies you can run the application in local by typing:
 
 - Run `gulp serve:dist` to preview the production build
 
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
 ## Other commands
 
+Run `grunt` for building and `grunt serve` for preview.
 Running `grunt test` will run the unit tests with karma.
 
 ## Features
