@@ -1,0 +1,28 @@
+<div ng-if="loading" class="text-center">
+  Loading...
+</div>
+<div class="well">
+  <button ng-if="!loading && !isPlaying" class="btn btn-lg btn-success" ng-click="playGame()">Play Game</button>
+  <button ng-if="isPlaying" class="btn btn-lg btn-danger" ng-click="stopGame()">Stop Game</button>
+  <div ng-if="!loading && isPlaying">
+    <h3>Guess the track</h3>
+    <h5>Your Score: {{score}}</h5>
+  </div>
+</div>
+<div class="row" ng-if="!loading && isPlaying">
+  <div class="col-md-3 col-sm-6" ng-repeat="track in selectedTracks">
+    <div class="card">
+      <div class="card-image">
+        <img class="img-responsive" ng-src="{{track.album.images[0].url}}">
+      </div>
+
+      <div class="card-content">
+        <h4 >{{track.name}}</h4>
+      </div>
+
+      <div class="card-action">
+        <a ng-click="selectTrack(track)">Select</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="jumbotron" ng-show="profile">
+  <div class="media">
+    <div class="media-left">
+      <img class="media-object img-circle" ng-src="{{profile.images[0].url}}" alt="{{profile.display_name}}">
+    </div>
+    <div class="media-body">
+      <h2 class="media-heading"><small>Hello<br/></small> {{profile.display_name}}</h2>
+    </div>
+  </div>
+</div>
+<div class="row" ng-show="topArtists">
+  <h3>Top 10 Artists</h3>
+  <div class="col-md-3 col-sm-6" ng-repeat="artist in topArtists">
+    <div class="card">
+      <div class="card-image">
+        <img class="img-responsive" ng-src="{{artist.images[0].url}}">
+        <span class="card-title">{{artist.name}}</span>
+      </div>
+
+      <div class="card-content">
+        <h5 class="truncate">{{artist.name}}</h5>
+        <p class="truncate">{{artist.followers.total}} followers</p>
+      </div>
+
+      <div class="card-action">
+        <a href="{{artist.external_urls.spotify}}" target="_blank">Follow</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" ng-show="topTracks">
+  <h3>Top 10 Tracks</h3>
+  <div class="col-md-3 col-sm-6" ng-repeat="track in topTracks">
+    <div class="card">
+      <div class="card-image">
+        <img class="img-responsive" ng-src="{{track.album.images[0].url}}">
+      </div>
+
+      <div class="card-content">
+        <h5 class="truncate">{{track.name}}</h5>
+        <p class="truncate">{{track.album.name}}</p>
+      </div>
+
+      <div class="card-action">
+        <a href="{{track.external_urls.spotify}}" target="_blank">Play</a>
+      </div>
+    </div>
+  </div>
+</div>
