@@ -8,5 +8,5 @@
  * Controller of the soundwallApp
  */
 angular.module('soundwallApp')
-  .controller('MainCtrl',['$scope', function ($scope) {
-  }]);
+  .controller('MainCtrl', function () {
+  });

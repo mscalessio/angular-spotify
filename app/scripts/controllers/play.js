@@ -8,7 +8,7 @@
 * Controller of the soundwallApp
 */
 angular.module('soundwallApp')
-.controller('PlayCtrl',['$scope', 'Spotify', function ($scope, Spotify) {
+.controller('PlayCtrl',['$scope', '$location', 'Spotify', function ($scope, $location, Spotify) {
   $scope.loading = true;
   $scope.isPlaying = false;
   var userTopTracks;
@@ -48,19 +48,19 @@ angular.module('soundwallApp')
     var randomTrackNum = [];
     var totalTracks = $scope.tracks.length - 1;
     while(randomTrackNum.length < 3) {
-      var randomNumber = getRandomIntInclusive(0, totalTracks)
+      var randomNumber = getRandomIntInclusive(0, totalTracks);
       var found = false;
       for (var i = 0; i < randomTrackNum.length; i++) {
-        if(randomTrackNum[i] == randomNumber) {
+        if(randomTrackNum[i] === randomNumber) {
           found = true;
           break;
         }
-      };
+      }
       if (!found) {
         randomTrackNum[randomTrackNum.length] = randomNumber;
         $scope.selectedTracks.push($scope.tracks[randomNumber]);
       }
-    };
+    }
     $scope.randomTrackNum = randomTrackNum;
     // console.log($scope.randomTrackNum);
     // console.log($scope.selectedTracks);

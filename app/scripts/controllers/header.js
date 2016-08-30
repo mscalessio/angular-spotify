@@ -16,7 +16,8 @@ angular.module('soundwallApp')
     }
 
     $scope.login = function () {
-      Spotify.login().then(function () {
+      Spotify.login().then(function (data) {
+        Spotify.setAuthToken(data);
         $rootScope.currentUserSignedIn = true;
         $location.path('/profile');
       }, function () {
@@ -31,6 +32,6 @@ angular.module('soundwallApp')
     };
 
     $scope.isActive = function (viewLocation) {
-        return viewLocation === $location.path();
+      return viewLocation === $location.path();
     };
   }]);
